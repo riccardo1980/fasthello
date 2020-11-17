@@ -27,7 +27,7 @@ http://localhost:80/docs
 
 ### From WSL2
 WSL2 is treated as a VM, connected to Windows host using a dedicated network.  
-From this point of view, FatAPI application is exposed as a Windows service: to get the IP address of windows host, a number of tricks is available. Most simple one is to ask for ip of default DNS, from WSL2 prompt:
+From this point of view, FatAPI application is exposed as a Windows service: to get the IP address of windows host, a number of tricks is available. Most simple one is to ask for IP address of default DNS, from WSL2 prompt:
 ```Bash
 cat /etc/resolv.conf
 ``` 
@@ -35,5 +35,5 @@ You can get access from WSL2 to your Windows host using above found IP address.
 For example, to test mock API exposed by this app, you can define local variable `WINDOWS_HOST_IP` with your collected IP address:
 ```Bash
 export WINDOWS_HOST_IP=<HOST_IP>
-curl -X GET "http://$WINDOWS_HOST/items/1" -H  "accept: application/json
+curl -X GET "http://$WINDOWS_HOST/items/1" -H  "accept: application/json"
 ``` 
