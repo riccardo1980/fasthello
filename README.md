@@ -18,19 +18,18 @@ docker run -d --name mycontainer -p 80:80 fasthello
 Pay attention that, since Docker service is run as Window service, you are exposing FastAPI app on Windows host.
 
 ## B/E access
-### From Windows
-You can get access from Windows using `localhost` host name.  
-For example, to get access using Windows hosted browser, use the following:
-```Bash
-http://localhost:80/docs
-``` 
-
-### From WSL2
 Here is the setup:
 
 - WSL2 is treated as a VM, connected to Windows host using a dedicated network. 
 - FastAPI application is exposed as a Windows service.
 
+### From Windows
+You can get access from Windows using `localhost` host name. For example, to get access using Windows hosted browser, use the following:
+```Bash
+http://localhost:80/docs
+``` 
+
+### From WSL2
 To get the IP address of windows host, as seen by WSL2 VM, a number of tricks is available. Most simple one is to ask for IP address of default DNS, from WSL2 prompt:
 ```Bash
 cat /etc/resolv.conf
