@@ -26,8 +26,12 @@ http://localhost:80/docs
 ``` 
 
 ### From WSL2
-WSL2 is treated as a VM, connected to Windows host using a dedicated network.  
-From this point of view, FatAPI application is exposed as a Windows service: to get the IP address of windows host, a number of tricks is available. Most simple one is to ask for IP address of default DNS, from WSL2 prompt:
+Here is the setup:
+
+- WSL2 is treated as a VM, connected to Windows host using a dedicated network. 
+- FastAPI application is exposed as a Windows service.
+
+To get the IP address of windows host, as seen by WSL2 VM, a number of tricks is available. Most simple one is to ask for IP address of default DNS, from WSL2 prompt:
 ```Bash
 cat /etc/resolv.conf
 ``` 
