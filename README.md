@@ -51,7 +51,7 @@ curl -X GET "http://127.0.0.1:8000/items/1" -H  "accept: application/json"
 
 ### Accessing running B/E from Windows
 You need to find IP of WSL2 virtual machine, as seen by Windows. Open a Power shell and use the following command:
-```Bash
+```Powershell
 wsl hostname -I
 ```
 Then use your Windows browser and navigate to:
