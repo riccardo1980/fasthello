@@ -44,12 +44,12 @@ uvicorn --reload --host=0.0.0.0 app.main:app
 ```
 Check uvicorn logs for exact bind port (usually 8000).
 
-### Accessing B/E from WSL2
+### Accessing running B/E from WSL2
 ```Bash
 curl -X GET "http://127.0.0.1:8000/items/1" -H  "accept: application/json"
 ``` 
 
-### Accessing B/E from Windows
+### Accessing running B/E from Windows
 You need to find IP of WSL2 virtual machine, as seen by Windows. Open a Power shell and use the following command:
 ```Bash
 wsl hostname -I
@@ -59,3 +59,8 @@ Then use your Windows browser and navigate to:
 http://<WSL2_IP>:8000/docs
 ``` 
 where `<WSL2_IP>` is IP address found with previous command.
+
+#### Powershell: Invoke-WebRequest
+```Powershell
+Invoke-WebRequest -Uri "http://<WSL2_IP>:8000/items/1" -Method GET -Headers @{"accept"="application/json"}
+```
