@@ -1,13 +1,25 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 
-app = FastAPI()
+from .dependencies import get_query_token, get_token_header
+from .internal import admin
+from .routers import items
+from .routers import users
+
+
+app = FastAPI(dependencies=[Depends(get_query_token)])
+
+
+app.include_router(users.router)
+app.include_router(items.router)
+app.include_router(
+    admin.router,
+    prefix="/admin",
+    tags=["admin"],
+    dependencies=[Depends(get_token_header)],
+    responses={418: {"description": "I'm a teapot"}},
+)
 
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
