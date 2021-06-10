@@ -34,7 +34,7 @@ You can get access from WSL2 to your Windows host using above found IP address.
 For example, to test mock API exposed by this app, you can define local variable `WINDOWS_HOST_IP` with your collected IP address:
 ```Bash
 export WINDOWS_HOST_IP=<HOST_IP>
-curl -X GET "http://$WINDOWS_HOST/items/1" -H  "accept: application/json"
+curl -X GET "http://$WINDOWS_HOST_IP/items/1" -H  "accept: application/json"
 ``` 
 
 ## Testing process solution
