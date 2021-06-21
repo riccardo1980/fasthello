@@ -30,7 +30,7 @@ http://localhost:8080
 Invoke-WebRequest -Uri "http://localhost:8080/items/1" -Method GET -Headers @{"accept"="application/json"}
 ```
 
-### Accessing running B/E from Windows whend no forwarding is configured
+### Accessing running B/E from Windows when no forwarding is configured
 You need to find IP of WSL2 virtual machine, as seen by Windows. Open a Power shell and use the following command:
 ```Powershell
 wsl hostname -I
